@@ -1,6 +1,6 @@
 # django-translation-lint
 
-Validate that Django translation strings start with lowercase.
+Validate that Django translation strings are fully lowercase.
 
 ## Example
 
@@ -8,12 +8,14 @@ Invalid:
 
 ```python
 _("User not found")
+_("user Not found")
 ```
 
 Valid:
 
 ```python
 _("user not found")
+_("hello %(name)s")
 ```
 
 ## Usage

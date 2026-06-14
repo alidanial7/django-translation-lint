@@ -132,10 +132,10 @@ class TranslationChecker(ast.NodeVisitor):
             if not text:
                 continue
 
-            if text[0].isalpha() and text[0].isupper():
+            if text != text.lower():
                 self.errors.append(
                     f"{self.filename}:{node.lineno}: "
-                    f"translation must start with lowercase -> '{text}'"
+                    f"translation must be lowercase -> '{text}'"
                 )
 
 

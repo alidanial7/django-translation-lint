@@ -29,6 +29,33 @@ _("User not found")
     assert_errors(source, ["User not found"])
 
 
+def test_invalid_uppercase_in_middle_of_translation():
+    source = """
+from django.utils.translation import gettext as _
+
+_("user Not found")
+"""
+    assert_errors(source, ["user Not found"])
+
+
+def test_invalid_all_uppercase_translation():
+    source = """
+from django.utils.translation import gettext as _
+
+_("USER NOT FOUND")
+"""
+    assert_errors(source, ["USER NOT FOUND"])
+
+
+def test_placeholders_are_allowed():
+    source = """
+from django.utils.translation import gettext as _
+
+_("hello %(name)s")
+"""
+    assert check_source(source) == []
+
+
 def test_pgettext_checks_message_not_context():
     source = """
 from django.utils.translation import pgettext

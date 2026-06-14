@@ -1,6 +1,6 @@
 - id: django-translation-lint
   name: Django Translation Lint
-  description: Ensures Django translation strings start with lowercase
+  description: Ensures Django translation strings are fully lowercase
   entry: django-translation-lint
   language: python
   types: [python]
